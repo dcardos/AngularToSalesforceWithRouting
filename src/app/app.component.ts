@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SalesforceService } from './util/salesforce.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-to-salesforce';
+
+  constructor(private sfService: SalesforceService) { }
+
+  getSFResourse = (path: string) => {
+    return this.sfService.getResource(path);
+  };
 }

@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy } from '@angular/common';
 import { SalesforceHashLocationStrategy } from './util/sf-path-location-strategy';
+import { HomeComponent } from './home/home.component';
+import { StaticPathPipe } from './pipes/static-path.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent,
+    StaticPathPipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 
 <apex:page sidebar="false" standardStylesheets="false" showHeader="false" controller="AngularToSFController" >
+
 <head>
   <meta charset="utf-8"/>
   <title>AngularToSalesforce</title>
@@ -10,9 +11,22 @@
 </head>
 
 <script>
-  gSfPageRoot='apex/angular-to-salesforce';
+  // For the images in the resources:
+  gSfStaticRoot = "{!URLFOR($Resource.angularToSFAssets, 'favicon.ico')}"
+  if (!(gSfStaticRoot[0] === "{")) { //in local mode this will not have been replaced
+    gSfStaticRoot = gSfStaticRoot.substr(0, gSfStaticRoot.lastIndexOf('/')) + '/';
+  } else {
+    gSfStaticRoot = "";
+  }
+
+  function getSfStaticResourceRoot() {
+    return gSfStaticRoot;
+  }
+  // For Routing:
+  gSfPageRoot = 'apex/angularToSF';
+
   function getSfPageRoot() {
-      return gSfPageRoot;
+    return gSfPageRoot;
   }
 </script>
 
@@ -21,4 +35,5 @@
 <script type="text/javascript" src="{!URLFOR($Resource.angularToSFAssets, 'runtime.js')}"></script><script type="text/javascript" src="{!URLFOR($Resource.angularToSFAssets, 'polyfills.js')}"></script><script type="text/javascript" src="{!URLFOR($Resource.angularToSFAssets, 'styles.js')}"></script><script type="text/javascript" src="{!URLFOR($Resource.angularToSFAssets, 'vendor.js')}"></script><script type="text/javascript" src="{!URLFOR($Resource.angularToSFAssets, 'main.js')}"></script><script type="text/javascript">
     window._VfResources = '{!URLFOR($Resource.angularToSFAssets)}';
     </script></body>
+
 </apex:page>
