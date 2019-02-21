@@ -8,12 +8,14 @@ import { SalesforceService } from '../util/salesforce.service';
 })
 export class HomeComponent implements OnInit {
   author = 'Danilo';
+  sfResp: string;
 
   constructor(private sfService: SalesforceService) { }
 
   ngOnInit(): void {
     this.sfService.remoteAction('AngularToSFController.helloAngular', [JSON.stringify(this.author)]).subscribe(resp => {
       console.log(resp);
+      this.sfResp = resp;
     });
   }
 }

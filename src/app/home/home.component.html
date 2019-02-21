@@ -1,7 +1,10 @@
 <div style="display: flex; justify-content: center;">
-  <div style="width: 60%;">
-    <h1>Example of page with routing and using resources like the gif below
-      which will be part of the static resources in Salesforce</h1>
-    <img [src]="'assets/catmin.gif' | staticpath"/>
+  <div style="width: 60%; display: flex; justify-content: center;">
+    <h1>Example of page with routing and using resources like the cat gif
+      which is part of the static resources in Salesforce</h1>
   </div>
+  <img style="width: 150px; height: 150px;" [src]="'assets/catmin.gif' | staticpath" />
+</div>
+<div style="text-align: center; margin: 10px;">
+  <h3>{{sfResp}}</h3>
 </div>
